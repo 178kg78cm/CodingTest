@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <unordered_set>
 using namespace std;
 
 int main(){
@@ -8,11 +8,17 @@ int main(){
     int n, m;
 
     cin >> n >> m;
-
-    vector<int> v(n);
-
+    int ing, count=0;
+    unordered_set<int> mset;
     for(int i=0;i<n;i++){
-        cin >> v[i];
+        cin >> ing;
+        if(mset.find(m-ing)==mset.end()){
+            mset.insert(ing);
+        }else{
+            count++;
+        }
     }
-    
+    cout << count;
+
+    return 0;
 }
