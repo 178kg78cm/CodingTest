@@ -55,7 +55,16 @@
     "span": "cpp",
     "text_encoding": "cpp",
     "variant": "cpp",
-    "queue": "cpp"
+    "queue": "cpp",
+    "bitset": "cpp",
+    "chrono": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "generator": "cpp",
+    "ranges": "cpp",
+    "stacktrace": "cpp",
+    "regex": "cpp",
+    "valarray": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled",
   "C_Cpp_Runner.cCompilerPath": "gcc",
