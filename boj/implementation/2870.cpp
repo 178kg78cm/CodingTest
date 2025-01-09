@@ -23,8 +23,9 @@ int main(){
             else{
                 if(!nums.empty()){
                     answer.push_back(nums);
+                    zero = false;   
                     nums.clear();
-                } else if(zero) answer.push_back("0");
+                } else if(zero) nums.push_back('0');
             }
         }
         if(!nums.empty()){
@@ -34,7 +35,10 @@ int main(){
     }
     sort(answer.begin(),answer.end(),[](string a, string b){
         if (a.length() < b.length()) return 1;
-        else if(a<b) return 1;
+        else if (a.length() == b.length()) {
+            if(a < b) return 1;
+            else return 0;
+        }
         else return 0;
     });
 

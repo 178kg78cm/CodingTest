@@ -1,2 +1,16 @@
 - map에서 key값 기준 정렬
  vector로 옮긴 후 정렬 v(map.begin(),map.end())
+
+- vector 원소 찾기
+find(v.begin(), v.end(), 0) == v.end()
+
+
+-define과 inline차이점
+https://velog.io/@mandarin926/%EC%A0%95%EB%A6%AC-3%EC%9D%BC%EC%B0%A8
+매크로(define)는 전처리기에 의해 치환(처리)됩니다.inline은 컴파일러의 판단에의해 처리 됩니다. (인라이닝 하느냐 함수로 그냥 처리하느냐)inline 은 데이터 타입을 정의해야 하지만, 매크로(define)은 그렇지 않습니다.
+
+
+- 중복값 제거 (sort -> erase(unique))
+vector<int> s2 {4, 3, 3, 5, 1, 2, 3};
+ sort(s2.begin(), s2.end());
+ s2.erase(unique(s2.begin(),s2.end()),s2.end());
