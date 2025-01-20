@@ -11,3 +11,7 @@ find(v.begin(), v.end(), 0) == v.end()
 vector<int> s2 {4, 3, 3, 5, 1, 2, 3};
  sort(s2.begin(), s2.end());
  s2.erase(unique(s2.begin(),s2.end()),s2.end());
+
+-template
+컴파일 때 함수가 생성되므로 런타임 시간에는 영향이 없다. 그래서 효율이 좋다.
+
