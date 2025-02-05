@@ -14,7 +14,9 @@ int main(){
             graph[v].push_back(u);
         }
 
-        for(int i=0;i<V;i++)
+        for(int i=0;i<V;i++){
+            
+        }
 
     }
 
