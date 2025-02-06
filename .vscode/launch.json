@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/A/Github/CodingTest/boj/implementation",
-      "program": "c:/A/Github/CodingTest/boj/implementation/build/Debug/outDebug",
+      "cwd": "${fileDirname}",
+      "program": "${fileDirname}\\build\\${fileBasenameNoExtension}",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
