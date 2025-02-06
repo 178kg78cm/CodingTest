@@ -6,17 +6,7 @@
 #include <vector>
 using namespace std;
 int n, m;
-/*
-int bool2int(string s){
-    int temp = 0;
-    for(int i=0;i<m;i++){
-        if((s[i]-'0')){
-            temp+= (s[i]-'0') << i;
-        }
-    }
-    return temp;
-}
-*/
+
 int toBitmask(const string& s) {
     int mask = 0;
     for (int i = 0; i < m; i++) {
