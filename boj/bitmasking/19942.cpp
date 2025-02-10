@@ -20,7 +20,6 @@ int checker() {
             mi >>= 1;
             ti >>= 1;
         }
-        // if(mi!=0 & ti==0) min_index = i;
     }
     return min_index;
 }
