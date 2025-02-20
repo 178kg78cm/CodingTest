@@ -1,43 +1,31 @@
 #include <iostream>
 #include <string>
-#include <stack>
 using namespace std;
 int main(){
+    ios_base::sync_with_stdio(0);cin.tie(0);
     string line, bomb;
 
     cin >> line >> bomb;
 
-    // int idx, idxe;
-    // while(s.find(bomb) != string::npos){
-    //     idx  = s.find(bomb);
-    //     idxe = idx+bomb.length();
-    //     s.erase(s.begin() + idx,s.begin() + idxe);
-    // }
-    
-    
-    // if(s.empty())
-    //     cout << "FRULA";
-    // else
-    //     cout << s;
-
-    stack<char> s;
+    string s;
     for(int i=0;i<line.length();i++){
-        s.push(line[i]);        
-        if(bomb[bomb.length()-1]==s.top()){
+        s.push_back(line[i]);        
+        if(bomb[bomb.length()-1]==s.back()){
             bool valid = 1;
-            for(int j=0;j<bomb.length();j++){
-                if(s[s.size()-j]!=bomb[j]){
+            for(int j=1;j<=bomb.length();j++){
+                if(s[s.length()-j]!=bomb[bomb.length()-j]){
                     valid = 0;
+                    break;
                 } 
             }
+
             if(valid){
-                for(int j=0;j<bomb.length();j++) s.po
+                for(int j=0;j<bomb.length();j++) s.pop_back();
             }
         }
     }
-    while(!s.empty()){
-        if(s.)
-    }
+    if(s.empty()) cout << "FRULA";
+    else cout << s;
 
     return 0;
 }
