@@ -1,31 +1,29 @@
 #include <iostream>
 #include <vector>
-#include <utility>
 #include <algorithm>
 using namespace std;
+
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n;
     cin >> n;
     vector<pair<int, int>> v(n);
-    int at, t;
-    for(int i=0;i<n;i++){
-        cin >> at >> t;
-        v[i] = make_pair(at,t);
+    
+    for (int i = 0; i < n; i++){
+        int arrival, duration;
+        cin >> arrival >> duration;
+        v[i] = {arrival, duration};
     }
-    sort(v.begin(),v.end());
-    int total = 0;
-    for(int i=1;i<n;i++){
-        int a = v[i-1].first+v[i-1].second;
-        int b = v[i].first+v[i].second;
-
-        if(a<v[i].first){
-            total = b;
-        }else if(b>a){
-            total += (b-a);
-        }else{
-            
-        }
+    
+    sort(v.begin(), v.end());
+    
+    long long current_time = 0;
+    for (auto &cow : v) {
+        current_time = max(current_time, cow.first) + cow.second;
     }
-
+    
+    cout << current_time << "\n";
     return 0;
 }
