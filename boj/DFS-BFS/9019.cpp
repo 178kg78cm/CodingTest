@@ -23,7 +23,6 @@ int main(){
         while(!nq.empty()){
             r = nq.front();
             nq.pop();
-
                 
             D = (2 * r) % 10000;
             if(visit[D] == -1){
@@ -35,10 +34,7 @@ int main(){
             }
 
             S = (r - 1);
-            if (S == -1){
-                S = 9999;
-                digits = 1000;
-            } 
+            if (S == -1) S = 9999;
             if(visit[S] == -1){
                 command[S] = 'S';
                 visit[S] = r;
@@ -47,7 +43,7 @@ int main(){
                 nq.push(S);
             }
             
-            L = (r/1000) + ((r * 10) % 10000);
+            L = ((r * 10) % 10000) + (int)(r/1000);
             if(visit[L] == -1){
                 command[L] = 'L';
                 visit[L] = r;

@@ -1,0 +1,1 @@
+{"name":"Local: 12886","url":"c:\\A\\Github\\CodingTest\\boj\\DFS-BFS\\12886.cpp","tests":[{"id":1741189801181,"input":"10 15 35","output":"1"},{"id":1741189806723,"input":"1 1 2","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\A\\Github\\CodingTest\\boj\\DFS-BFS\\12886.cpp","group":"local","local":true}
