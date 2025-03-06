@@ -17,7 +17,7 @@ int main(){
         v[i] = {arrival, duration};
     }
     
-    sort(v.begin(), v.end());
+sort(v.begin(), v.end());
     
     long long current_time = 0;
     for (auto &cow : v) {

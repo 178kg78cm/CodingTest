@@ -33,7 +33,7 @@ int main(){
                 nq.push(D);
             }
 
-            S = (r - 1);
+            S = (r - 1);    
             if (S == -1) S = 9999;
             if(visit[S] == -1){
                 command[S] = 'S';
