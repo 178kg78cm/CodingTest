@@ -20,14 +20,18 @@ int main(){
                 s[i+1]=='1' ? s[i+1]='0' : s[i+1]='1';
             answer++;
         }
-    }
 
-    for(int i=0;i<n;i++){
-        if(s[i]!=s2[i]){
-            cout << -1;
+        int j=0;
+        for(j=0;j<n;j++){
+            if(s[j]!=s2[j]){
+                break;
+            }
+        } if(j==n) {
+            cout << answer;
             return 0;
         }
     }
-    cout << answer;
+    
+    cout << -1;
     return 0;
 }
