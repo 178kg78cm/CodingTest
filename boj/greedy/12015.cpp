@@ -16,14 +16,6 @@ int main(){
         return 0;
     }
 
-    stack<int> s;
-    s.push(v[N-1]);
-    for(int i=N-2;i>=0;i--){
-        if(s.top()<=v[i]){
-            s.pop();
-        }
-        s.push(v[i]);
-    }
-    cout << s.size();
+    
     return 0;
 }

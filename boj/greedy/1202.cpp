@@ -7,13 +7,15 @@ typedef struct {
     int v;// 가격
     int m;// 무게
 } jem;
-bool cmpWeight(jem a, jem b){
-    if(a.m>b.m){
-        return true;
-    }else{
-        return false;
+struct cmpValue{
+    bool compare(jem a, jem b){
+        if(a.v<b.v){
+            return true;
+        }else{
+            return false;
+        }
     }
-}
+};
 int main(){
     int N, K;
     cin >> N >> K;
@@ -30,13 +32,22 @@ int main(){
     }
     int answer = 0;
     sort(back_info.begin(),back_info.end(),greater());
-    sort(jem_info.begin(),jem_info.end(),cmpWeight);
-    priority_queue<jem> q;
-    for(int i=K;i>=0;i--){
-        for(int j=0;)
-        if(jem_info[i].m <= back_info[i]){
-            q.push(jem_info[i]);
+    sort(jem_info.begin(),jem_info.end(),[](jem a, jem b){
+        if(a.m>b.m) return true;
+        else return false;
+    });
+    vector<bool> visited(N,0);
+    priority_queue<jem,vector<jem>, cmpValue> q;
+
+    for(int i=0;i<K;i++){
+        for(int j=0;j<jem_info.size();j++){
+            if(visited[j]==0){
+                
+
+            }
         }
+        if()
+        visited[j]=1;
     }
 
 }
