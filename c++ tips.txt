@@ -22,8 +22,194 @@ vector<int> s2 {4, 3, 3, 5, 1, 2, 3};
     tie(x, y) = a.first; // 첫 번째 pair를 분해
 
 
-    지금은 값을 바꾸지 않고 그냥 출력만 해서 별 상관이 없지만, 만약 int e : v1이라고 하면 복사된 값이 e에 들어가고 int& e : v1이라고 하면 원본이 e에 들어갑니다. 그렇기 때문에 int e : v1라고 쓴 for문 내에서 e를 바꿔도 v1에는 영향이 가지 않지만, int& e : v1이라고 쓴 for문 내에서는 e를 바꾸면 원본인 v1에서 실제 해당 원소의 값이 바뀌게 됩니다.
+
+
+지금은 값을 바꾸지 않고 그냥 출력만 해서 별 상관이 없지만, 만약 int e : v1이라고 하면 복사된 값이 e에 들어가고 int& e : v1이라고 하면 원본이 e에 들어갑니다. 그렇기 때문에 int e : v1라고 쓴 for문 내에서 e를 바꿔도 v1에는 영향이 가지 않지만, int& e : v1이라고 쓴 for문 내에서는 e를 바꾸면 원본인 v1에서 실제 해당 원소의 값이 바뀌게 됩니다.
 
  
 
 이 기능은 vector 뿐만 아니라 나중에 배울 list, map, set 등에서도 모두 사용할 수 있기 때문에 기억해두시면 좋은데 다만 이 기능은 C++11부터 추가된 기능입니다. 만약 코딩테스트가 C++11을 지원하지 않는다고 하면 사용할 수 없습니다.
+
+
+1. 진법 변환
+10진수 -> 2, 8, 16진수
+C++에는 Python의 bin(), oct(), hex() 같은 내장 함수가 없지만, std::bitset나 stringstream을 사용하여 진법 변환을 할 수 있습니다.
+
+#include <iostream>
+#include <bitset>
+#include <sstream>
+
+int main() {
+    int value = 7;
+    
+    // 10진수 -> 2진수
+    std::bitset<8> binary(value);
+    std::cout << "2진수: " << binary << std::endl;
+    
+    // 10진수 -> 8진수
+    std::stringstream octal;
+    octal << std::oct << value;
+    std::cout << "8진수: " << octal.str() << std::endl;
+    
+    // 10진수 -> 16진수
+    std::stringstream hex;
+    hex << std::hex << value;
+    std::cout << "16진수: " << hex.str() << std::endl;
+}
+**@진수 -> 10진수**
+다양한 진법을 10진수로 변환하려면 std::stoi 또는 std::stol 함수를 사용할 수 있습니다.
+
+cpp
+Copy code
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string b = "111";  // 2진수
+    std::string o = "7";    // 8진수
+    std::string h = "7";    // 16진수
+
+    int d_2 = std::stoi(b, nullptr, 2);
+    int d_8 = std::stoi(o, nullptr, 8);
+    int d_16 = std::stoi(h, nullptr, 16);
+
+    std::cout << "10진수(2진수): " << d_2 << std::endl;
+    std::cout << "10진수(8진수): " << d_8 << std::endl;
+    std::cout << "10진수(16진수): " << d_16 << std::endl;
+}
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+ios_base::sync_with_stdio(false);
+cin.tie(NULL); cout.tie(NULL);
+ 
+
+sort 사용자 정의 정렬
+
+// 1차원 벡터
+bool cmp(int a, int b) return a < b;
+
+// 2차원 벡터
+bool cmp(vector<int> &v1, vector<int> &v2){
+  if(v1[1] == v2[1])
+    return v1[0]<v2[0];
+  else return v1[1]<v2[1];
+}
+
+// pair 벡터
+bool cmp(pair<int, int> u, pair<int, int> t){
+  if(u.first==t.first)
+	return u.second < t.second;
+  return u.first < t.first;
+}
+
+sort(v.begin(), v.end(), cmp);
+ 
+
+정렬 후, 중복제거
+
+sort(v.begin(), v.end());
+v.erase(unique(v.begin(). v.end()), v.end());
+ 
+
+정렬된 경우 이분탐색 (크거나 같은 값, 더 큰 값)
+
+lower_bound는 정렬된 배열에서 탐색값이 2개 이상 있는 경우 가장 앞에 위치한 탐색값
+
+upper_bound는 가장 뒤에 위치한 탐색값의 다음 위치 
+
+auto lower = lower_bound(v.begin(), v.end(), n);
+-> 벡터에서 최초의 n 이상의 값을 iterator 형태로 저장
+auto upper = upper_bound(v.begin(), v.end(), n);
+-> 벡터에서 최초의 key 초과값을 iterator 형태로 저장
+
+if(lower_bound(v.begin(), v.end(), n) == v.end()) {
+    // no such value
+}
+순차탐색 (같은 값)
+
+find(v.begin(), v.end(), n);
+ 
+
+문자열
+문자열을 찾을 수 없는 경우
+
+if(str.find("asdf") == string::npos) {
+    // cant find
+}
+ 
+
+문자열을 여러개의 정수형으로
+
+int A, B, C;
+stringstream ss("123 456 789");
+ss >> A >> B >> C;
+ 
+
+if (find(A.begin(), A.end(), s) == A.end())
+    return 0;
+else return 1;
+
+find(A.begin(), A.end(), s);
+// find(찾으려는 범위의 시작 iterator, 끝 iterator, 찾으려는 값);
+// A.end()를 반환한다면 해당 범위에서 s를 찾지 못한 것!
+ 
+
+map / set
+vector 내부 map 정렬
+
+map<string, int> m;
+
+vector<pair<string, int>> v(m.begin(), m.end());
+
+sort(v.begin(), v.end(), compare);
+ 
+
+값 존재 확인, 값 제거
+
+m.count("asdf"); s.count(1234);
+m.erase("asdf"); s.erase(1234);
+ 
+
+queue / priority_queue
+우선순위큐 오름차순, 내림차순 (default 내림차순)
+
+priority_queue<int, vector<int>, greater<int>> pq; // 오름차순
+priority_queue<int, vector<int>, less<int>> pq; // 내림차순 default
+ 
+
+우선순위큐 사용자 설정 정렬
+
+struct cmp{
+	bool operator()(int a, int b){
+    	return a < b;
+    }
+};
+priority_queue<int, vector<int>, cmp> pq;
+ 
+
+배열 초기화
+// 0이나 -1로 초기화
+memset(arr, 0, sizeof(arr))
+
+// 다른 값으로 초기화
+fill(&arr[0][0], &arr[N][N], INF);
+ 
+
+문자열을 어떤 문자로 나누기
+string str = "hello world";
+istringstream  iss(str);
+
+vector <string> words;
+string word;
+
+while(iss >> word) {
+words.push_back(word);
+}
+
+## 이분 탐색
+https://www.acmicpc.net/blog/view/109
+
